@@ -36,3 +36,90 @@
     transform: rotate(360deg);
   }
 }
+
+.GButton {
+  font-family: Helvetica,sans-serif !important;
+  padding: 20px 170px !important;
+  background-color: #4c69ba !important;
+  height: 54px !important;
+  margin-right: 20px !important;
+  color: #f5f6f7 !important;
+  font-size: calc(.27548vw + 12.71074px);
+  font-weight: 700 !important;
+  width: 100%;
+  text-transform: uppercase;
+  margin-top: 50px;
+  -webkit-font-smoothing: antialiased !important;
+  /* display: inline-block !important; */
+}
+
+body{
+  background-color: black;
+  color: white;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.form {
+  width: 40%;
+  /* border: 1px black solid; */
+  margin: 100px auto auto auto;
+  text-align: center;
+  background-color: white !important;
+  padding: 30px 0px;
+  
+
+}
+
+.showData
+{
+  /* margin-top: 35px; */
+  text-align: center;
+  width:100%;
+  /* margin: auto; */
+  color:black;
+
+}
+
+.asdf
+{
+  margin-top: 2em;
+}
+
+.image
+{
+  border-radius: 50px;
+}
+
+.FButton
+{
+
+}
+
+.kep-login-facebook {
+  font-family: time;
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: calc(.27548vw + 12.71074px);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color .3s,border-color .3s;
+  background-color: #4c69ba;
+  border: calc(.06887vw + .67769px) solid #4c69ba;
+  padding: calc(.34435vw + 13.38843px) calc(.34435vw + 18.38843px);
+  margin-top: 20px;
+  width: 100%;
+}
+
+h1{
+  color: black;
+}
+
+
+.kep-login-facebook .fa {
+  height: auto;
+  margin-right: calc(.34435vw + 3.38843px);
+  margin: 0px 25px !important;
+}
