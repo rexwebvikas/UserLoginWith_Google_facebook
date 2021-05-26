@@ -3,8 +3,10 @@ import './App.css';
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
 import { useEffect, useState } from 'react';
+import HomePage from './HomePage';
 
 function App() {
+  const [show, setShow] = useState(true)
   const [data, setData] = useState([]);
   const [final, setFinal] = useState(data)
   const [click, setclick] = useState()
@@ -12,12 +14,13 @@ function App() {
     console.log(response);
     setData(response)
     setclick("true")
+    setShow(pre=>!pre)
   }
   const responseFacebook = (response) => {
     console.log(response);
     setData(response)
     setclick("false")
-    debugger
+    setShow(pre=>!pre)
   }
   console.log(data, 'data');
   // console.log(click, 'data');
@@ -28,32 +31,34 @@ function App() {
     }
   }, [data])
   return (
-  
     <>
       <div className="form">
-        <h1>Choose one Option</h1>
-        <GoogleLogin
-          className="GButton"
-          clientId="585809215339-29vgkd2avvcu8qnnkheoubforhpmil6a.apps.googleusercontent.com"
-          buttonText="Login with Google"
-          onSuccess={responseGoogle}
-          onFailure={responseGoogle}
-        // cookiePolicy={'single_host_origin'}
-        />
-        <br></br>
-        <FacebookLogin
-          className="FButton"
-          appId="308734604124922"
-          autoLoad={true}
-          fields="name,email,picture"
-          callback={responseFacebook}
-          render={renderProps => (
-            <button onClick={renderProps.onClick}>Login with facebook</button>
-          )}
-        // cssClass="my-facebook-button-class"
-        icon="fa-facebook"
-        />
-        <div className="asdf">
+        {show && <div>
+          <h1>Choose one Option</h1>
+          <GoogleLogin
+            className="GButton"
+            clientId="585809215339-29vgkd2avvcu8qnnkheoubforhpmil6a.apps.googleusercontent.com"
+            buttonText="Login with Google"
+            onSuccess={responseGoogle}
+            onFailure={responseGoogle}
+          // cookiePolicy={'single_host_origin'}
+          />
+          <br></br>
+          <FacebookLogin
+            className="FButton"
+            appId="308734604124922"
+            autoLoad={true}
+            fields="name,email,picture"
+            callback={responseFacebook}
+            render={renderProps => (
+              <button onClick={renderProps.onClick}>Login with facebook</button>
+            )}
+            // cssClass="my-facebook-button-class"
+            icon="fa-facebook"
+          />
+        </div>}
+        {!show && <HomePage show={show} setShow={setShow} click={click} final={final} />}
+        {/* <div className="asdf">
           {click === "true" ? <table className="showData">
             <thead>
               <th>Name</th>
@@ -90,7 +95,7 @@ function App() {
               </tbody>
             </table>
               : ""}
-        </div>
+        </div> */}
       </div>
     </>
 
